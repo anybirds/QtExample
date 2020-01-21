@@ -1,0 +1,23 @@
+#include <GL/glew.h>
+
+#include "mainwindow.h"
+
+#include <QApplication>
+#include <QSurfaceFormat>
+#include <QDebug>
+
+int main(int argc, char *argv[])
+{
+    // set default surface format to use OpenGL 3.3 Core
+    QSurfaceFormat format;
+    format.setDepthBufferSize(24);
+    format.setStencilBufferSize(8);
+    format.setVersion(3, 3);
+    format.setProfile(QSurfaceFormat::CoreProfile);
+    QSurfaceFormat::setDefaultFormat(format);
+
+    QApplication a(argc, argv);
+    MainWindow w;
+    w.show();
+    return a.exec();
+}
